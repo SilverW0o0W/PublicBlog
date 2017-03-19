@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+	<package name="default" namespace="/" extends="struts-default">
+	</package>
+	<package name="login" extends="struts-default">
+		<action name="Userlogin" class="action.UserAction" method="login">
+			<result name="login_success">/index.html</result>
+			<result name="login_failure">/background/login/User_login.jsp</result>
+		</action>
+	</package>
+	<package name="user" namespace="/background" extends="struts-default">
+		<action name="*_*" class="action.{1}Action" method="{2}">
+			<result name="login_success">/index.jsp</result>
+			<result name="login_failure">/background/login/User_login.jsp</result>
+			<allowed-methods>login</allowed-methods>
+		</action>
+	</package>
+</struts>
+
+
