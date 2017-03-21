@@ -17,6 +17,10 @@ public class Resource extends Item {
 		super();
 	}
 
+	public Resource(int id) {
+		super(id);
+	}
+
 	public Resource(int id, String name, String description, String creator, Date createTime, String path) {
 		super(id, name, description, creator, createTime);
 		this.path = path;

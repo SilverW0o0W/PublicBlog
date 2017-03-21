@@ -1,9 +1,17 @@
-﻿<!DOCTYPE html>
+﻿<%@ page language="java" import="java.util.*"
+	contentType="text/html; charset=utf-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+<!DOCTYPE html>
 <html lang="zh-cn">
 <head>
 <meta charset="utf-8">
 <title>Backgroud-Main</title>
-<link href="../../CSS/backgroud/main/style.css" rel="stylesheet" />
+<link href="<%=path%>/CSS/backgroud/main/style.css" rel="stylesheet" />
 <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="css/ie.css" /><![endif]-->
 <script src="../../JavaScript/jquery.1.91.min.js"></script>
 <script src="../../JavaScript/backgroud/main/main.js"></script>
@@ -21,13 +29,17 @@
 						</ul>
 					</nav>
 					<div class="profile-box">
-						<span class="profile"> <a href="#" class="section"> <img
-								class="image" src="" alt="image description" width="26"
-								height="26" /> <span class="text-box"> Welcome <strong
-									class="name">Silver</strong>
+						<span class="profile"> 
+							<a href="#" class="section"> 
+							<img class="image" src="" alt="image description" width="26" height="26" /> 
+							<span class="text-box"> 
+								Welcome 
+								<strong class="name">${sessionScope.LoginUser.getUsername()}</strong>
 							</span>
-						</a> <a href="#" class="opener">opener</a>
-						</span> <a href="#" class="btn-on">On</a>
+							</a> 
+							<a href="#" class="opener">opener</a>
+						</span> 
+						<a href="#" class="btn-on">On</a>
 					</div>
 				</div>
 				<div class="tabs">

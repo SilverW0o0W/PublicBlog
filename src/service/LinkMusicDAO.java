@@ -2,7 +2,7 @@ package service;
 
 import POJO.LinkMusic;
 
-public interface LinkMusicDAO {
+public interface LinkMusicDAO extends ResourceDAO{
 	public boolean AddMusic(LinkMusic linkMusic);
-	public boolean DeleteMusic(String musicId);
+	public boolean DeleteMusic(int musicId);
 }

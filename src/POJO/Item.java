@@ -48,9 +48,13 @@ public class Item {
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
-	
+
 	public Item() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public Item(int id) {
+		this.id = id;
 	}
 
 	public Item(int id, String name, String description, String creator, Date createTime) {

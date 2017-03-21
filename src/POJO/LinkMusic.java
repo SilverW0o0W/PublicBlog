@@ -2,13 +2,18 @@ package POJO;
 
 import java.util.Date;
 
-public class LinkMusic extends Resource{
+public class LinkMusic extends Resource {
 
-	public LinkMusic(){
+	public LinkMusic() {
 		super();
 	}
+
+	public LinkMusic(int id) {
+		super(id);
+	}
+
 	public LinkMusic(int id, String name, String description, String creator, Date createTime, String path) {
-		super(id, name, description, creator, createTime, path);		
+		super(id, name, description, creator, createTime, path);
 	}
 
 }
