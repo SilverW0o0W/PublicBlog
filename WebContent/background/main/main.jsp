@@ -10,16 +10,18 @@
 <html lang="zh-cn">
 <head>
 <meta charset="utf-8">
+<base href="<%=path %>">
 <title>Background-Main</title>
-<link href="<%=path%>/CSS/backgroud/main/style.css" rel="stylesheet" />
+<link href="/CSS/backgroud/main/style.css" rel="stylesheet" />
 <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="css/ie.css" /><![endif]-->
-<script src="../../JavaScript/jquery.1.91.min.js"></script>
-<script src="../../JavaScript/backgroud/main/main.js"></script>
+<script src="/JavaScript/jquery-3.1.1.min.js"></script>
+<script src="/JavaScript/backgroud/main/main.js"></script>
+<script src="/JavaScript/backgroud/main/ajax.js"></script>
 </head>
 <body>
 	<div id="wrapper">
 		<div id="content">
-			<div class="c1">
+			<div class="main">
 				<div class="controls">
 					<nav class="links">
 						<ul>
@@ -39,7 +41,7 @@
 							</a> 
 							<a href="#" class="opener">opener</a>
 						</span> 
-						<a href="<%=path%>/background/User_logout.action" class="btn-on">On</a>
+						<a href="/background/User_logout.action" class="btn-on">On</a>
 					</div>
 				</div>
 				<div class="tabs">
@@ -97,11 +99,13 @@
 								<div>
 									<table>
 										<tr>
+											<td>Music id</td>
 											<td>Music name</td>
 											<td>URL</td>
 											<td>Operation</td>
 										</tr>
 										<tr>
+											<td>1</td>
 											<td>Lemon tree</td>
 											<td><a href="http://silvercodingcat.com">https://silvercodingcat.com/blablablabla</a></td>
 											<td><a href="">Delete</a></td>
