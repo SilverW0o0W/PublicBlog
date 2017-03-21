@@ -126,7 +126,7 @@
 									message.</li>
 								<li class="warning">Warning: This is a warning placed text
 									message.</li>
-								<li class="Success">Success : This is a Success placed text
+								<li class="succes">Success : This is a Success placed text
 									message.</li>
 							</ul>
 						</article>

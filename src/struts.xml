@@ -7,20 +7,13 @@
 <struts>
 	<package name="default" namespace="/" extends="struts-default">
 	</package>
-	<package name="login" extends="struts-default">
-		<action name="Userlogin" class="action.UserAction" method="login">
-			<result name="login_success">/index.html</result>
-			<result name="login_failure">/background/login/User_login.jsp</result>
-		</action>
-	</package>
 	<package name="user" namespace="/background" extends="struts-default">
 		<action name="*_*" class="action.{1}Action" method="{2}">
-			<result name="login_success">/index.jsp</result>
-			<result name="login_failure">/background/login/User_login.jsp</result>
-			<result name="logout_login">/background/login/User_login.jsp</result>
-			<result name="logout_home">/index.jsp</result>
+			<result name="login_success" type="redirect">/background/main.jsp</result>
+			<result name="login_failure" type="redirect">/background/login.jsp</result>
+			<result name="logout_login" type="redirect">/background/login.jsp</result>
+			<result name="logout_home" type="redirect">/index.jsp</result>
 			<allowed-methods>login,logout</allowed-methods>
-			
 		</action>
 	</package>
 </struts>
