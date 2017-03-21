@@ -10,13 +10,13 @@
 <html lang="zh-cn">
 <head>
 <meta charset="utf-8">
-<base href="<%=path %>">
+<base href="<%=basePath %>">
 <title>Background-Main</title>
-<link href="/CSS/backgroud/main/style.css" rel="stylesheet" />
+<link href="CSS/backgroud/main/style.css" rel="stylesheet" />
 <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="css/ie.css" /><![endif]-->
-<script src="/JavaScript/jquery-3.1.1.min.js"></script>
-<script src="/JavaScript/backgroud/main/main.js"></script>
-<script src="/JavaScript/backgroud/main/ajax.js"></script>
+<script src="JavaScript/jquery-3.1.1.min.js"></script>
+<script src="JavaScript/backgroud/main/main.js"></script>
+<script src="JavaScript/backgroud/main/ajax.js"></script>
 </head>
 <body>
 	<div id="wrapper">
@@ -41,7 +41,7 @@
 							</a> 
 							<a href="#" class="opener">opener</a>
 						</span> 
-						<a href="/background/User_logout.action" class="btn-on">On</a>
+						<a href="background/User_logout.action" class="btn-on">On</a>
 					</div>
 				</div>
 				<div class="tabs">

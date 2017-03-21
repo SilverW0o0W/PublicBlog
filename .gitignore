@@ -48,3 +48,4 @@ Temporary Items
 src/hibernate.cfg.xml
 build/classes/hibernate.cfg.xml
 *.class
+.classpath
