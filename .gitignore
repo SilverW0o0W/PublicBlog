@@ -47,3 +47,4 @@ Temporary Items
 .apdisk
 src/hibernate.cfg.xml
 build/classes/hibernate.cfg.xml
+*.class
