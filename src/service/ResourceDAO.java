@@ -1,6 +1,8 @@
 package service;
 
+import POJO.Resource;
+
 public interface ResourceDAO extends ItemDAO{
 	
-	boolean DeleteResource(int id);
+	boolean DeleteResource(Resource resource);
 }

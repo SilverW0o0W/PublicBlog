@@ -22,6 +22,15 @@ public class UserAction extends Action implements ModelDriven<User> {
 		}
 	}
 
+	public String logout() {
+		if (session == null) {
+			return "logout_home";
+		}
+		session.removeAttribute("LoginUser");
+		session.invalidate();
+		return "logout_login";
+	}
+
 	public User getModel() {
 		return this.user;
 	}

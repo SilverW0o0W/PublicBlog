@@ -6,7 +6,6 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import POJO.LinkMusic;
-import POJO.Resource;
 import hibernate.HibernateSessionFactory;
 import service.LinkMusicDAO;
 
@@ -28,6 +27,7 @@ public class LinkMusicDAOImpl extends ResourceDAOImpl implements LinkMusicDAO {
 			query.setParameter(4, linkMusic.getPath());
 			query.executeUpdate();
 			transaction.commit();
+			return true;
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			return false;
@@ -36,12 +36,13 @@ public class LinkMusicDAOImpl extends ResourceDAOImpl implements LinkMusicDAO {
 				transaction = null;
 			}
 		}
-		return false;
 	}
 
 	@Override
 	public boolean DeleteMusic(int musicId) {
-		return DeleteResource(musicId);
+		LinkMusic linkMusic;
+		linkMusic=new LinkMusic(musicId);
+		return DeleteResource(linkMusic);
 	}
 
 }

@@ -10,7 +10,7 @@
 <html lang="zh-cn">
 <head>
 <meta charset="utf-8">
-<title>Backgroud-Main</title>
+<title>Background-Main</title>
 <link href="<%=path%>/CSS/backgroud/main/style.css" rel="stylesheet" />
 <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="css/ie.css" /><![endif]-->
 <script src="../../JavaScript/jquery.1.91.min.js"></script>
@@ -39,7 +39,7 @@
 							</a> 
 							<a href="#" class="opener">opener</a>
 						</span> 
-						<a href="#" class="btn-on">On</a>
+						<a href="<%=path%>/background/User_logout.action" class="btn-on">On</a>
 					</div>
 				</div>
 				<div class="tabs">
@@ -122,7 +122,7 @@
 									message.</li>
 								<li class="warning">Warning: This is a warning placed text
 									message.</li>
-								<li class="succes">Succes : This is a succes placed text
+								<li class="Success">Success : This is a Success placed text
 									message.</li>
 							</ul>
 						</article>
@@ -146,7 +146,7 @@
 									message.</li>
 								<li class="warning">Warning: This is a warning placed text
 									message.</li>
-								<li class="succes">Succes : This is a succes placed text
+								<li class="Success">Success : This is a Success placed text
 									message.</li>
 							</ul>
 						</article>
@@ -162,7 +162,7 @@
 									message.</li>
 								<li class="warning">Warning: This is a warning placed text
 									message.</li>
-								<li class="succes">Succes : This is a succes placed text
+								<li class="Success">Success : This is a Success placed text
 									message.</li>
 							</ul>
 						</article>

@@ -17,7 +17,10 @@
 		<action name="*_*" class="action.{1}Action" method="{2}">
 			<result name="login_success">/index.jsp</result>
 			<result name="login_failure">/background/login/User_login.jsp</result>
-			<allowed-methods>login</allowed-methods>
+			<result name="logout_login">/background/login/User_login.jsp</result>
+			<result name="logout_home">/index.jsp</result>
+			<allowed-methods>login,logout</allowed-methods>
+			
 		</action>
 	</package>
 </struts>

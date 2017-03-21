@@ -1,5 +1,7 @@
 package service;
 
+import POJO.Item;
+
 public interface ItemDAO {
-	boolean DeleteItem(int id);
+	boolean DeleteItem(Item item);
 }
