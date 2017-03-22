@@ -91,7 +91,9 @@
 							<div class="text-section">
 								<h2>Add music</h2>
 								<p>
-									<input type="text" /> <input type="button" value="Add" />
+									<input type="text" name="music-name" />
+									<input type="text" name="music-url" />
+									<input type="button"  name="music-add" value="Add" />
 								</p>
 							</div>
 							<div class="text-section">

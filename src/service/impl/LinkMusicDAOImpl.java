@@ -37,12 +37,4 @@ public class LinkMusicDAOImpl extends ResourceDAOImpl implements LinkMusicDAO {
 			}
 		}
 	}
-
-	@Override
-	public boolean DeleteMusic(int musicId) {
-		LinkMusic linkMusic;
-		linkMusic=new LinkMusic(musicId);
-		return DeleteResource(linkMusic);
-	}
-
 }
