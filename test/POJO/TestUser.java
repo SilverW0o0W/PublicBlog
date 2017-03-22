@@ -1,12 +1,13 @@
 package POJO;
 
-import java.util.EnumSet;
-
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+//import java.util.EnumSet;
+//
+//import org.hibernate.Session;
+//import org.hibernate.SessionFactory;
+//import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+//import org.hibernate.service.ServiceRegistry;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
+
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 import org.junit.Test;
 

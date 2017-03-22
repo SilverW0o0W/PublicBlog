@@ -51,3 +51,4 @@ build/classes/hibernate.cfg.xml
 .classpath
 build/classes/struts.xml
 /bin/
+/build/

@@ -3,8 +3,6 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 2017-3-22 22:06:12 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <union-subclass name="POJO.Resource" extends="POJO.Item" lazy="false" abstract="true">
-        <property name="path" type="java.lang.String">
-        </property>
+    <union-subclass name="POJO.LinkMusic" extends="POJO.Resource" lazy="false" table="LINKMUSIC">
     </union-subclass>
 </hibernate-mapping>

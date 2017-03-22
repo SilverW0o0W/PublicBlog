@@ -1,24 +1,19 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2017-2-12 17:10:56 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2017-3-22 22:06:12 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <class name="POJO.Item" table="ITEM">
+    <class name="POJO.Item" table="ITEM" abstract="true">
         <id name="id" type="int">
-            <column name="ID" />
-            <generator class="assigned" />
+            <generator class="increment" />
         </id>
         <property name="name" type="java.lang.String">
-            <column name="NAME" />
         </property>
         <property name="description" type="java.lang.String">
-            <column name="DESCRIPTION" />
         </property>
         <property name="creator" type="java.lang.String">
-            <column name="CREATOR" />
         </property>
-        <property name="createTime" type="java.sql.Date">
-            <column name="CREATETIME" />
+        <property name="createTime" type="java.util.Date">
         </property>
     </class>
 </hibernate-mapping>

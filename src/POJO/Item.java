@@ -2,7 +2,7 @@ package POJO;
 
 import java.util.Date;
 
-public class Item {
+public abstract class Item {
 	private int id;
 	private String name;
 	private String description;

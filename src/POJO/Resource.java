@@ -2,7 +2,7 @@ package POJO;
 
 import java.util.Date;
 
-public class Resource extends Item {
+public abstract class Resource extends Item {
 	private String path;
 
 	public String getPath() {

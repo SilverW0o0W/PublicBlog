@@ -14,18 +14,19 @@ public class LinkMusicDAOImpl extends ResourceDAOImpl implements LinkMusicDAO {
 	@Override
 	public boolean AddMusic(LinkMusic linkMusic) {
 		Transaction transaction = null;
-		String hql = "";
+//		String hql = "";
 		try {
 			Session session = HibernateSessionFactory.getSesstionFactory().getCurrentSession();
 			transaction = session.beginTransaction();
-			hql = "insert into LinkMusic values(?,?,?,?,?)";
-			Query query = session.createQuery(hql);
-			query.setParameter(0, linkMusic.getName());
-			query.setParameter(1, linkMusic.getDescription());
-			query.setParameter(2, linkMusic.getCreator());
-			query.setParameter(3, new Date());
-			query.setParameter(4, linkMusic.getPath());
-			query.executeUpdate();
+//			hql = "insert into LinkMusic values(?,?,?,?,?)";
+//			Query query = session.createQuery(hql);
+//			query.setParameter(0, linkMusic.getName());
+//			query.setParameter(1, linkMusic.getDescription());
+//			query.setParameter(2, linkMusic.getCreator());
+//			query.setParameter(3, new Date());
+//			query.setParameter(4, linkMusic.getPath());
+//			query.executeUpdate();
+			session.save(linkMusic);
 			transaction.commit();
 			return true;
 		} catch (Exception ex) {
