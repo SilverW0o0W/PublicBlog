@@ -17,13 +17,13 @@ public class LinkMusicAction extends Action implements ModelDriven<LinkMusic> {
 
 	public String Add(LinkMusic linkMusic) {
 		linkMusicDAO = new LinkMusicDAOImpl();
-		linkMusicDAO.AddMusic(linkMusic);
+		linkMusicDAO.Add(linkMusic);
 		return null;
 	}
 
 	public String Delete(LinkMusic linkMusic) {
 		linkMusicDAO = new LinkMusicDAOImpl();
-		linkMusicDAO.DeleteItem(linkMusic);
+		linkMusicDAO.Delete(linkMusic);
 		return null;
 	}
 

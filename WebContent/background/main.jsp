@@ -92,7 +92,7 @@
 								<h2>Add music</h2>
 								<p>
 									<input type="text" name="music-name" />
-									<input type="text" name="music-url" />
+									<input type="text" name="music-path" />
 									<input type="button"  name="music-add" value="Add" />
 								</p>
 							</div>

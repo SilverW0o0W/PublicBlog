@@ -13,6 +13,12 @@ public class TestLinkMusicDAOImpl {
 	public void TestAddMusic() {
 		LinkMusic linkMusic = new LinkMusic(1, "Lemon", "Just say something", "silver", new Date(), "http://silvercodingcat.com");
 		LinkMusicDAO linkMusicDAO=new LinkMusicDAOImpl();
-		Assert.assertEquals(true, linkMusicDAO.AddMusic(linkMusic));
+		Assert.assertEquals(true, linkMusicDAO.Add(linkMusic));
+	}
+	@Test
+	public void TestDeleteMusic(){
+		LinkMusic linkMusic = new LinkMusic(1, "Lemon", "Just say something", "silver", new Date(), "http://silvercodingcat.com");
+		LinkMusicDAO linkMusicDAO=new LinkMusicDAOImpl();
+		Assert.assertEquals(true, linkMusicDAO.Delete(linkMusic));
 	}
 }

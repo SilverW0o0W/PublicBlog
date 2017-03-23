@@ -11,7 +11,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 import org.junit.Test;
 
-public class TestUser {
+public class TestCreateTable {
 
 	@Test
 	public void TestSchemaExport() {

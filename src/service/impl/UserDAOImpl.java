@@ -25,7 +25,7 @@ public class UserDAOImpl implements UserDAO {
 			Query query = session.createQuery(hql);
 			query.setParameter(0, user.getEmail());
 			query.setParameter(1, user.getPassword());
-			List list = query.list();
+			List<?> list = query.list();
 			transaction.commit();
 			if (list.size() > 0) {
 				currentUser = (User) list.get(0);
