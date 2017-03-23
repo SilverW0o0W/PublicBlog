@@ -14,17 +14,30 @@ public class LinkMusicAction extends Action implements ModelDriven<LinkMusic> {
 	private static final long serialVersionUID = -3816627476063622227L;
 	private LinkMusic linkMusic = new LinkMusic();
 	private LinkMusicDAO linkMusicDAO;
+	public String message;
 
-	public String Add(LinkMusic linkMusic) {
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public String add() {
 		linkMusicDAO = new LinkMusicDAOImpl();
-		linkMusicDAO.Add(linkMusic);
+		linkMusicDAO.add(linkMusic);
 		return null;
 	}
 
-	public String Delete(LinkMusic linkMusic) {
+	public String delete() {
 		linkMusicDAO = new LinkMusicDAOImpl();
-		linkMusicDAO.Delete(linkMusic);
-		return null;
+		if (linkMusicDAO.delete(linkMusic)) {
+			message = "{\"result\":\"success\"}";
+		} else {
+			message = "{\"result\":\"failed\"}";
+		}
+		return "delete_music";
 	}
 
 	@Override

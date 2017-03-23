@@ -11,7 +11,7 @@ import service.ItemDAO;
 public abstract class ItemDAOImpl implements ItemDAO {
 
 	@Override
-	public boolean Add(Item item) {
+	public boolean add(Item item) {
 		Transaction transaction = null;
 		try {
 			Session session = HibernateSessionFactory.getSesstionFactory().getCurrentSession();
@@ -30,7 +30,7 @@ public abstract class ItemDAOImpl implements ItemDAO {
 	}
 
 	@Override
-	public boolean Delete(Item item) {
+	public boolean delete(Item item) {
 		Transaction transaction = null;
 		try {
 			Session session = HibernateSessionFactory.getSesstionFactory().getCurrentSession();

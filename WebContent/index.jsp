@@ -52,6 +52,9 @@
 				<li><a href=""> <img class="sliderimg"
 						src="resource/test.jpg" />
 				</a></li>
+				<li><a href=""> <img class="sliderimg"
+						src="resource/test.jpg" />
+				</a></li>
 			</ul>
 		</div>
 		<div class="contract">

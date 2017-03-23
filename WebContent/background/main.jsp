@@ -26,8 +26,11 @@
 					<nav class="links">
 						<ul>
 							<li><a href="#" class="like">Like <span class="num">5</span></a></li>
-							<li><a href="#" class="comment">Comment <span
-									class="num">3</span></a></li>
+							<li>
+							<a href="#" class="comment">Comment
+							<span class="num">3</span>
+							</a>
+						    </li>
 						</ul>
 					</nav>
 					<div class="profile-box">
@@ -113,6 +116,7 @@
 											<td><a href="">Delete</a></td>
 										</tr>
 									</table>
+									<input type="button" name="music-delete" id="music-delete" value="delete" >
 								</div>
 							</div>
 						</article>

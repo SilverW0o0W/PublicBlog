@@ -7,4 +7,12 @@ $(document).ready(function() {
 			alert("数据：" + data + "\n状态：" + status);
 		});
 	});
+	$("#music-delete").click(function() {
+		$.post("background/LinkMusic_delete.action", {
+			id : 3
+		}, function(data, status) {
+			console.log(data.message);
+			alert(data.message + "#" + status);
+		});
+	});
 });
