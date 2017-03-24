@@ -11,7 +11,7 @@ import org.apache.struts2.util.ServletContextAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class Action extends ActionSupport implements ServletRequestAware, ServletResponseAware, ServletContextAware {
+public abstract class Action extends ActionSupport implements ServletRequestAware, ServletResponseAware, ServletContextAware {
 
 	private static final long serialVersionUID = 1L;
 	protected HttpServletRequest request;

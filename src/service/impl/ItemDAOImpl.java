@@ -39,7 +39,7 @@ public abstract class ItemDAOImpl implements ItemDAO {
 			transaction.commit();
 			return true;
 		} catch (Exception ex) {
-			ex.printStackTrace();
+			ex.getMessage();
 			return false;
 		} finally {
 			if (transaction != null) {

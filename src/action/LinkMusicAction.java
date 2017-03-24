@@ -1,12 +1,15 @@
 package action;
 
+import com.google.gson.Gson;
 import com.opensymphony.xwork2.ModelDriven;
-
 import POJO.LinkMusic;
+import common.AjaxResponse;
+import common.AjaxResponse.AjaxStatus;
+import common.factory.GsonFactory;
 import service.LinkMusicDAO;
 import service.impl.LinkMusicDAOImpl;
 
-public class LinkMusicAction extends Action implements ModelDriven<LinkMusic> {
+public class LinkMusicAction extends AsyncAction implements ModelDriven<LinkMusic> {
 
 	/**
 	 * 
@@ -14,15 +17,6 @@ public class LinkMusicAction extends Action implements ModelDriven<LinkMusic> {
 	private static final long serialVersionUID = -3816627476063622227L;
 	private LinkMusic linkMusic = new LinkMusic();
 	private LinkMusicDAO linkMusicDAO;
-	public String message;
-
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
 
 	public String add() {
 		linkMusicDAO = new LinkMusicDAOImpl();
@@ -32,12 +26,17 @@ public class LinkMusicAction extends Action implements ModelDriven<LinkMusic> {
 
 	public String delete() {
 		linkMusicDAO = new LinkMusicDAOImpl();
+		Gson gson = GsonFactory.GetInstance();
+		AjaxResponse ajaxResponse = new AjaxResponse();
 		if (linkMusicDAO.delete(linkMusic)) {
-			message = "{\"result\":\"success\"}";
+			ajaxResponse.setStatus(AjaxStatus.SUCCESS);
 		} else {
-			message = "{\"result\":\"failed\"}";
+			ajaxResponse.setStatus(AjaxStatus.ERROR);
 		}
-		return "delete_music";
+		String message = String.format("Delete music %s %s.", linkMusic.getName(), ajaxResponse.getStatus().toString());
+		ajaxResponse.setMessage(message);
+		response = gson.toJson(ajaxResponse);
+		return "item_delete";
 	}
 
 	@Override

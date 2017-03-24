@@ -10,7 +10,7 @@
 <html lang="zh-cn">
 <head>
 <meta charset="utf-8">
-<base href="<%=basePath %>">
+<base href="<%=basePath%>">
 <title>Background-Main</title>
 <link href="CSS/backgroud/main/style.css" rel="stylesheet" />
 <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="css/ie.css" /><![endif]-->
@@ -26,28 +26,26 @@
 					<nav class="links">
 						<ul>
 							<li><a href="#" class="like">Like <span class="num">5</span></a></li>
-							<li>
-							<a href="#" class="comment">Comment
-							<span class="num">3</span>
-							</a>
-						    </li>
+							<li><a href="#" class="comment">Comment <span
+									class="num">3</span>
+							</a></li>
 						</ul>
 					</nav>
 					<div class="profile-box">
-						<span class="profile"> 
-							<a href="#" class="section"> 
-							<img class="image" src="" alt="image description" width="26" height="26" /> 
-							<span class="text-box"> 
-								Welcome 
-								<strong class="name">${sessionScope.LoginUser.getUsername()}</strong>
+						<span class="profile"> <a href="#" class="section"> <img
+								class="image" src="" alt="image description" width="26"
+								height="26" /> <span class="text-box"> Welcome <strong
+									class="name">${sessionScope.LoginUser.getUsername()}</strong>
 							</span>
-							</a> 
-							<a href="#" class="opener">opener</a>
-						</span> 
-						<a href="background/User_logout.action" class="btn-on">On</a>
+						</a> <a href="#" class="opener">opener</a>
+						</span> <a href="background/User_logout.action" class="btn-on">On</a>
 					</div>
 				</div>
 				<div class="tabs">
+					<div class="response-bar">
+						<ul class="status" id="response-ul">
+						</ul>
+					</div>
 					<div id="dashboard" class="tab">
 						<article>
 							<div class="text-section">
@@ -94,9 +92,9 @@
 							<div class="text-section">
 								<h2>Add music</h2>
 								<p>
-									<input type="text" name="music-name" />
-									<input type="text" name="music-path" />
-									<input type="button"  name="music-add" value="Add" />
+									<input type="text" name="music-name" /> <input type="text"
+										name="music-path" /> <input type="button" name="music-add"
+										value="Add" />
 								</p>
 							</div>
 							<div class="text-section">
@@ -116,7 +114,8 @@
 											<td><a href="">Delete</a></td>
 										</tr>
 									</table>
-									<input type="button" name="music-delete" id="music-delete" value="delete" >
+									<input type="button" name="music-delete" id="music-delete"
+										value="delete">
 								</div>
 							</div>
 						</article>
@@ -127,7 +126,7 @@
 								<h1>Dashboard</h1>
 								<p>This is a quick overview of some features</p>
 							</div>
-							<ul class="states">
+							<ul class="status">
 								<li class="error">Error : This is an error placed text
 									message.</li>
 								<li class="warning">Warning: This is a warning placed text
@@ -151,7 +150,7 @@
 								<h1>Dashboard</h1>
 								<p>This is a quick overview of some features</p>
 							</div>
-							<ul class="states">
+							<ul class="status">
 								<li class="error">Error : This is an error placed text
 									message.</li>
 								<li class="warning">Warning: This is a warning placed text
@@ -167,12 +166,12 @@
 								<h1>Dashboard</h1>
 								<p>This is a quick overview of some features</p>
 							</div>
-							<ul class="states">
+							<ul class="status">
 								<li class="error">Error : This is an error placed text
 									message.</li>
 								<li class="warning">Warning: This is a warning placed text
 									message.</li>
-								<li class="Success">Success : This is a Success placed text
+								<li class="success">Success : This is a Success placed text
 									message.</li>
 							</ul>
 						</article>
