@@ -1,6 +1,9 @@
 package action;
 
+import java.util.Date;
+
 import com.google.gson.Gson;
+import com.mysql.fabric.xmlrpc.base.Data;
 import com.opensymphony.xwork2.ModelDriven;
 import POJO.LinkMusic;
 import common.AjaxResponse;
@@ -20,8 +23,18 @@ public class LinkMusicAction extends AsyncAction implements ModelDriven<LinkMusi
 
 	public String add() {
 		linkMusicDAO = new LinkMusicDAOImpl();
-		linkMusicDAO.add(linkMusic);
-		return null;
+		linkMusic.setCreateTime(new Date());
+		Gson gson = GsonFactory.GetInstance();
+		AjaxResponse ajaxResponse = new AjaxResponse();
+		if (linkMusicDAO.add(linkMusic)) {
+			ajaxResponse.setStatus(AjaxStatus.SUCCESS);
+		} else {
+			ajaxResponse.setStatus(AjaxStatus.ERROR);
+		}
+		String message = String.format("Add music %s %s.", linkMusic.getName(), ajaxResponse.getStatus().toString());
+		ajaxResponse.setMessage(message);
+		response = gson.toJson(ajaxResponse);
+		return "item_operation";
 	}
 
 	public String delete() {
@@ -36,7 +49,7 @@ public class LinkMusicAction extends AsyncAction implements ModelDriven<LinkMusi
 		String message = String.format("Delete music %s %s.", linkMusic.getName(), ajaxResponse.getStatus().toString());
 		ajaxResponse.setMessage(message);
 		response = gson.toJson(ajaxResponse);
-		return "item_delete";
+		return "item_operation";
 	}
 
 	@Override

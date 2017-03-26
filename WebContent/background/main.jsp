@@ -35,7 +35,7 @@
 						<span class="profile"> <a href="#" class="section"> <img
 								class="image" src="" alt="image description" width="26"
 								height="26" /> <span class="text-box"> Welcome <strong
-									class="name">${sessionScope.LoginUser.getUsername()}</strong>
+									id="#user-name" class="name">${sessionScope.LoginUser.getUsername()}</strong>
 							</span>
 						</a> <a href="#" class="opener">opener</a>
 						</span> <a href="background/User_logout.action" class="btn-on">On</a>
@@ -92,9 +92,10 @@
 							<div class="text-section">
 								<h2>Add music</h2>
 								<p>
-									<input type="text" name="music-name" /> <input type="text"
-										name="music-path" /> <input type="button" name="music-add"
-										value="Add" />
+									<input type="text" id="music-name" name="music-name" /> <input
+										type="text" id="music-description" name="music-description" />
+									<input type="text" id="music-path" name="music-path" /> <input
+										type="button" id="music-add" name="music-add" value="Add" />
 								</p>
 							</div>
 							<div class="text-section">
@@ -114,7 +115,7 @@
 											<td><a href="">Delete</a></td>
 										</tr>
 									</table>
-									<input type="button" name="music-delete" id="music-delete"
+									<input type="button" id="music-delete" name="music-delete"
 										value="delete">
 								</div>
 							</div>

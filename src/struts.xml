@@ -7,14 +7,16 @@
 <struts>
 	<package name="default" namespace="/" extends="struts-default">
 	</package>
-	<package name="user" namespace="/background" extends="json-default">
+	<package name="/background" namespace="/background" extends="json-default">
 		<action name="*_*" class="action.{1}Action" method="{2}">
 			<result name="login_success" type="redirect">/background/main.jsp
+			</result>
+			<result name="login_failure" type="redirect">/background/login.jsp
 			</result>
 			<result name="logout_login" type="redirect">/background/login.jsp
 			</result>
 			<result name="logout_home" type="redirect">/index.jsp</result>
-			<result name="item_delete" type="json">
+			<result name="item_operation" type="json">
 				<param name="root">response</param>
 			</result>
 			<allowed-methods>login,logout,add,delete</allowed-methods>

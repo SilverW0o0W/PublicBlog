@@ -1,12 +1,15 @@
 $(document).ready(function() {
-	$("music-add").click(function() {
+	$("#music-add").click(function() {
 		$.post("background/LinkMusic_add.action", {
-			name : $("music-name").val,
-			path : $("music-path").val
-		}, function(data, status) {
-			alert("数据：" + data + "\n状态：" + status);
+			name : $("#music-name").val(),
+			description : $("#music-description").val(),
+			creator : $("#user-name").text(),
+			path : $("#music-path").val()
+		}, function(response, status) {
+			showMessage(response);
 		});
 	});
+
 	$("#music-delete").click(function() {
 		$.post("background/LinkMusic_delete.action", {
 			id : 3
@@ -43,7 +46,10 @@ $(document).ready(function() {
 		liElement.appendChild(textNode);
 		$("#response-ul").prepend(liElement);
 		$("#response-ul").children().on("click", function() {
-			$(this).slideToggle();
+			$(this).slideToggle(function() {
+				$(this).remove();
+			});
+
 		});
 	}
 	;
