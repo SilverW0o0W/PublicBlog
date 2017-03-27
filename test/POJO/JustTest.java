@@ -5,9 +5,10 @@ import org.junit.Test;
 import com.google.gson.Gson;
 
 public class JustTest {
+	
 	@Test
-	public void test(){
+	public void TestABC(){
 		Gson gson=new Gson();
-		System.out.println(gson.toJson(1234435));
+		System.out.println(gson.getClass().getName());
 	}
 }
