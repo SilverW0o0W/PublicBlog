@@ -13,6 +13,7 @@ import common.Page;
 import common.factory.PageFactory;
 import hibernate.HibernateSessionFactory;
 import service.ItemDAO;
+import sun.nio.cs.ext.TIS_620;
 
 public abstract class ItemDAOImpl implements ItemDAO {
 
@@ -91,8 +92,8 @@ public abstract class ItemDAOImpl implements ItemDAO {
 			transaction = session.beginTransaction();
 			String hql = "from ?";
 			Page page = PageFactory.GetPage(itemClass);
-			page.setRecordsCount(this.count(itemClass));
-			page.setCurrentPage(pageNumber);
+			long recordsCount = this.count(itemClass);
+			page.GetFirstIndex(pageNumber, recordsCount);
 			Query query = session.createQuery(hql);
 			query.setString(0, itemClass.getSimpleName());
 			items = query.list();

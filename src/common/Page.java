@@ -16,14 +16,6 @@ public class Page {
 		this.recordEachPage = recordEachPage;
 	}
 
-	public int getCurrentPage() {
-		return currentPage;
-	}
-
-	public void setCurrentPage(int currentPage) {
-		this.currentPage = currentPage;
-	}
-
 	public int getPagesCount() {
 		return pagesCount;
 	}
@@ -46,6 +38,30 @@ public class Page {
 
 	public String getClassName() {
 		return className;
+	}
+
+	public int GetFirstIndex(int pageNumber, long recordsCount) {
+		int firstIndex = 0;
+		int tempPagesCount;
+		this.recordsCount = recordsCount;
+		if (recordsCount <= 0 || pageNumber <= 0) {
+			return 0;
+		}
+		tempPagesCount = (int) (recordsCount / recordEachPage);
+		tempPagesCount += recordsCount % recordEachPage > 0 ? 1 : 0;
+		this.pagesCount = tempPagesCount;
+		int pageIndex;
+		if (pageNumber <= this.pagesCount) {
+			pageIndex = pageNumber - 1;
+		} else {
+			pageIndex = this.pagesCount - 1;
+		}
+		firstIndex = pageIndex * recordEachPage;
+		return firstIndex;
+	}
+
+	public int GetMaxResults() {
+		return this.recordEachPage;
 	}
 
 	public Page() {
