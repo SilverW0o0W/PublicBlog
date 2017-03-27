@@ -1,9 +1,14 @@
 package action;
 
 import java.util.Date;
+import java.util.List;
+
 import com.google.gson.Gson;
 import com.opensymphony.xwork2.ModelDriven;
+
+import POJO.Item;
 import POJO.LinkMusic;
+
 import common.AjaxResponse;
 import common.AjaxResponse.AjaxStatus;
 import common.factory.GsonFactory;
@@ -48,6 +53,11 @@ public class LinkMusicAction extends AsyncAction implements ModelDriven<LinkMusi
 		ajaxResponse.setMessage(message);
 		response = gson.toJson(ajaxResponse);
 		return "item_operation";
+	}
+
+	public List<? extends Item> query() {
+		linkMusicDAO = new LinkMusicDAOImpl();
+		return linkMusicDAO.query(LinkMusic.class);
 	}
 
 	@Override

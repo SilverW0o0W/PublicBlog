@@ -49,6 +49,7 @@ public class Page {
 		}
 		tempPagesCount = (int) (recordsCount / recordEachPage);
 		tempPagesCount += recordsCount % recordEachPage > 0 ? 1 : 0;
+		System.out.println(tempPagesCount);
 		this.pagesCount = tempPagesCount;
 		int pageIndex;
 		if (pageNumber <= this.pagesCount) {
@@ -56,6 +57,7 @@ public class Page {
 		} else {
 			pageIndex = this.pagesCount - 1;
 		}
+		System.out.println(pageIndex);
 		firstIndex = pageIndex * recordEachPage;
 		return firstIndex;
 	}

@@ -13,25 +13,27 @@ import common.Page;
 import common.factory.PageFactory;
 import hibernate.HibernateSessionFactory;
 import service.ItemDAO;
-import sun.nio.cs.ext.TIS_620;
 
 public abstract class ItemDAOImpl implements ItemDAO {
 
+	private Session session;
+	private Transaction transaction;
+
 	@Override
 	public boolean add(Item item) {
-		Transaction transaction = null;
+		transaction = null;
 		try {
-			Session session = HibernateSessionFactory.getSesstionFactory().getCurrentSession();
+			session = HibernateSessionFactory.getSesstionFactory().getCurrentSession();
 			transaction = session.beginTransaction();
 			session.save(item);
 			transaction.commit();
 			return true;
 		} catch (Exception ex) {
 			ex.printStackTrace();
+			transaction.rollback();
 			return false;
 		} finally {
 			if (transaction != null) {
-				transaction.rollback();
 				transaction = null;
 			}
 		}
@@ -39,19 +41,20 @@ public abstract class ItemDAOImpl implements ItemDAO {
 
 	@Override
 	public boolean delete(Item item) {
-		Transaction transaction = null;
+		transaction = null;
 		try {
-			Session session = HibernateSessionFactory.getSesstionFactory().getCurrentSession();
+			session = HibernateSessionFactory.getSesstionFactory().getCurrentSession();
 			transaction = session.beginTransaction();
 			session.delete(item);
 			transaction.commit();
 			return true;
 		} catch (Exception ex) {
 			ex.getMessage();
+			transaction.rollback();
 			return false;
 		} finally {
 			if (transaction != null) {
-				transaction.rollback();
+
 				transaction = null;
 			}
 		}
@@ -61,22 +64,21 @@ public abstract class ItemDAOImpl implements ItemDAO {
 	@Override
 	public List<? extends Item> query(Class<? extends Item> itemClass) {
 		List<? extends Item> items = null;
-		Transaction transaction = null;
+		transaction = null;
 		try {
-			Session session = HibernateSessionFactory.getSesstionFactory().getCurrentSession();
-			String hql = "from ?";
+			session = HibernateSessionFactory.getSesstionFactory().getCurrentSession();
+			String hql = String.format("from %s", itemClass.getSimpleName());
 			transaction = session.beginTransaction();
 			Query query = session.createQuery(hql);
-			query.setString(0, itemClass.getSimpleName());
 			items = query.list();
 			transaction.commit();
 			return items;
 		} catch (Exception ex) {
 			ex.getMessage();
+			transaction.rollback();
 			return null;
 		} finally {
 			if (transaction != null) {
-				transaction.rollback();
 				transaction = null;
 			}
 		}
@@ -86,25 +88,27 @@ public abstract class ItemDAOImpl implements ItemDAO {
 	@Override
 	public List<? extends Item> query(Class<? extends Item> itemClass, int pageNumber) {
 		List<? extends Item> items = null;
-		Transaction transaction = null;
+		transaction = null;
 		try {
-			Session session = HibernateSessionFactory.getSesstionFactory().getCurrentSession();
-			transaction = session.beginTransaction();
-			String hql = "from ?";
+
+			String hql = String.format("from %s", itemClass.getSimpleName());
 			Page page = PageFactory.GetPage(itemClass);
 			long recordsCount = this.count(itemClass);
-			page.GetFirstIndex(pageNumber, recordsCount);
+			int firstIndex = page.GetFirstIndex(pageNumber, recordsCount);
+			session = HibernateSessionFactory.getSesstionFactory().getCurrentSession();
+			transaction = session.beginTransaction();
 			Query query = session.createQuery(hql);
-			query.setString(0, itemClass.getSimpleName());
+			query.setFirstResult(firstIndex);
+			query.setMaxResults(page.GetMaxResults());
 			items = query.list();
 			transaction.commit();
 			return items;
 		} catch (Exception ex) {
-			ex.getMessage();
+			ex.printStackTrace();
+			transaction.rollback();
 			return null;
 		} finally {
 			if (transaction != null) {
-				transaction.rollback();
 				transaction = null;
 			}
 		}
@@ -113,15 +117,21 @@ public abstract class ItemDAOImpl implements ItemDAO {
 	@Override
 	public long count(Class<? extends Item> itemClass) {
 		long count = -1;
+		transaction = null;
 		try {
-			Session session = HibernateSessionFactory.getSesstionFactory().getCurrentSession();
+			session = HibernateSessionFactory.getSesstionFactory().getCurrentSession();
+			transaction = session.beginTransaction();
 			Criteria criteria = session.createCriteria(itemClass);
 			criteria.setProjection(Projections.rowCount());
 			count = (Long) criteria.uniqueResult();
+			transaction.commit();
 		} catch (Exception ex) {
-			ex.getMessage();
+			ex.printStackTrace();
+		} finally {
+			if (transaction != null) {
+				transaction = null;
+			}
 		}
 		return count;
 	}
-
 }
