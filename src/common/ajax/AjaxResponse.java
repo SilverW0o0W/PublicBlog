@@ -1,4 +1,4 @@
-package common;
+package common.ajax;
 
 public class AjaxResponse {
 	public enum AjaxStatus {
