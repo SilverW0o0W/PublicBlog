@@ -16,8 +16,11 @@
 			<result name="logout_login" type="redirect">/background/login.jsp
 			</result>
 			<result name="logout_home" type="redirect">/index.jsp</result>
-			<result name="item_operation" type="json">
+			<result name="item_operate" type="json">
 				<param name="root">response</param>
+			</result>
+			<result name="item_query" type="json">
+				<param name="root">dataset</param>
 			</result>
 			<allowed-methods>login,logout,add,delete</allowed-methods>
 		</action>

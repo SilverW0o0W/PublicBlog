@@ -18,6 +18,7 @@ public abstract class ItemDAOImpl implements ItemDAO {
 
 	private Session session;
 	private Transaction transaction;
+	private Page page;
 
 	@Override
 	public boolean add(Item item) {
@@ -90,9 +91,8 @@ public abstract class ItemDAOImpl implements ItemDAO {
 		List<? extends Item> items = null;
 		transaction = null;
 		try {
-
 			String hql = String.format("from %s", itemClass.getSimpleName());
-			Page page = PageFactory.GetPage(itemClass);
+			page = PageFactory.GetPage(itemClass);
 			long recordsCount = this.count(itemClass);
 			int firstIndex = page.GetFirstIndex(pageNumber, recordsCount);
 			session = HibernateSessionFactory.getSesstionFactory().getCurrentSession();
@@ -133,5 +133,12 @@ public abstract class ItemDAOImpl implements ItemDAO {
 			}
 		}
 		return count;
+	}
+
+	protected int getPagesCount() {
+		if (page == null) {
+			return 0;
+		}
+		return page.getPagesCount();
 	}
 }

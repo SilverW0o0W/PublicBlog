@@ -36,7 +36,7 @@ public class LinkMusicAction extends AsyncAction implements ModelDriven<LinkMusi
 		String message = String.format("Add music %s %s.", linkMusic.getName(), ajaxResponse.getStatus().toString());
 		ajaxResponse.setMessage(message);
 		response = gson.toJson(ajaxResponse);
-		return "item_operation";
+		return "item_operate";
 	}
 
 	public String delete() {
@@ -51,7 +51,7 @@ public class LinkMusicAction extends AsyncAction implements ModelDriven<LinkMusi
 		String message = String.format("Delete music %s %s.", linkMusic.getName(), ajaxResponse.getStatus().toString());
 		ajaxResponse.setMessage(message);
 		response = gson.toJson(ajaxResponse);
-		return "item_operation";
+		return "item_operate";
 	}
 
 	@SuppressWarnings("unchecked")
