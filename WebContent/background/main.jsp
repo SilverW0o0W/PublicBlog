@@ -1,10 +1,18 @@
-﻿<%@ page language="java" import="java.util.*"
+﻿<%@page import="service.impl.LinkMusicDAOImpl"%>
+<%@page import="service.LinkMusicDAO"%>
+<%@page import="POJO.LinkMusic"%>
+<%@page import="action.LinkMusicAction"%>
+<%@ page language="java" import="java.util.*"
 	contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
+%>
+<%
+	LinkMusicDAO linkMusicDao = new LinkMusicDAOImpl();
+	List<LinkMusic> musicList = (List<LinkMusic>) linkMusicDao.query(LinkMusic.class, 0);
 %>
 <!DOCTYPE html>
 <html lang="zh-cn">
@@ -62,7 +70,7 @@
 							</div>
 							<div class="text-section">
 								<h2>Music</h2>
-								<p>10</p>
+								<p>11</p>
 							</div>
 						</article>
 					</div>
@@ -108,12 +116,22 @@
 											<td>URL</td>
 											<td>Operation</td>
 										</tr>
-										<tr>
-											<td>1</td>
-											<td>Lemon tree</td>
-											<td><a href="http://silvercodingcat.com">https://silvercodingcat.com/blablablabla</a></td>
-											<td><a href="">Delete</a></td>
-										</tr>
+										<%=musicList.size()%>
+										<s:iterator value="musicList" id="music">
+											<tr>
+												<td><s:property value="#music.id" /></td>
+											</tr>
+										</s:iterator>
+										<s:iterator value="musicList" id="music">
+											<tr>
+												<td><input type="checkbox"
+													value="<s:property value="music.id" />" /></td>
+												<td><s:property value="music.id" /></td>
+												<td><s:property value="music.name" /></td>
+												<td><a href="<s:property value="music.path"/>"><s:property
+															value="music.path" /></a></td>
+											</tr>
+										</s:iterator>
 									</table>
 									<input type="button" id="music-delete" name="music-delete"
 										value="delete">
