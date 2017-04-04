@@ -22,7 +22,7 @@
 			<result name="item_query" type="json">
 				<param name="root">dataset</param>
 			</result>
-			<allowed-methods>login,logout,add,delete</allowed-methods>
+			<allowed-methods>login,logout,add,delete,query</allowed-methods>
 		</action>
 	</package>
 </struts>

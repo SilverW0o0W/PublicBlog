@@ -10,10 +10,6 @@
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<%
-	LinkMusicDAO linkMusicDao = new LinkMusicDAOImpl();
-	List<LinkMusic> musicList = (List<LinkMusic>) linkMusicDao.query(LinkMusic.class, 0);
-%>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -116,22 +112,7 @@
 											<td>URL</td>
 											<td>Operation</td>
 										</tr>
-										<%=musicList.size()%>
-										<s:iterator value="musicList" id="music">
-											<tr>
-												<td><s:property value="#music.id" /></td>
-											</tr>
-										</s:iterator>
-										<s:iterator value="musicList" id="music">
-											<tr>
-												<td><input type="checkbox"
-													value="<s:property value="music.id" />" /></td>
-												<td><s:property value="music.id" /></td>
-												<td><s:property value="music.name" /></td>
-												<td><a href="<s:property value="music.path"/>"><s:property
-															value="music.path" /></a></td>
-											</tr>
-										</s:iterator>
+										<s:action name="LinkMusic_query"  namespace="/background" />
 									</table>
 									<input type="button" id="music-delete" name="music-delete"
 										value="delete">

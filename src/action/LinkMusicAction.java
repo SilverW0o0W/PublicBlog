@@ -55,13 +55,13 @@ public class LinkMusicAction extends AsyncAction implements ModelDriven<LinkMusi
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<LinkMusic> queryAll() {
+	private List<LinkMusic> queryAll() {
 		linkMusicDAO = new LinkMusicDAOImpl();
 		return (List<LinkMusic>) linkMusicDAO.query(LinkMusic.class);
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<LinkMusic> queryByPage(int pageNumber) {
+	private List<LinkMusic> queryByPage(int pageNumber) {
 		linkMusicDAO = new LinkMusicDAOImpl();
 		return (List<LinkMusic>) linkMusicDAO.query(LinkMusic.class, pageNumber);
 	}
@@ -76,7 +76,8 @@ public class LinkMusicAction extends AsyncAction implements ModelDriven<LinkMusi
 			pageNumber = Integer.parseInt(request.getParameter("page"));
 		}
 		List<LinkMusic> linkMusics = queryByPage(pageNumber);
-		dataset = gson.toJson(linkMusics);
+//		dataset = gson.toJson(linkMusics);
+		dataset = "{1,2,3,4,5}";
 		return "item_query";
 	}
 
