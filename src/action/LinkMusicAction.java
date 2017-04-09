@@ -69,15 +69,17 @@ public class LinkMusicAction extends AsyncAction implements ModelDriven<LinkMusi
 	public String query() {
 		Gson gson = GsonFactory.GetInstance();
 		int pageNumber;
-		String sPageNumber = request.getParameter("page");
+		String sPageNumber = "";
+		if (request != null) {
+			sPageNumber = request.getParameter("page");
+		}
 		if (TextUtils.isNullOrEmpty(sPageNumber)) {
 			pageNumber = 0;
 		} else {
 			pageNumber = Integer.parseInt(request.getParameter("page"));
 		}
 		List<LinkMusic> linkMusics = queryByPage(pageNumber);
-//		dataset = gson.toJson(linkMusics);
-		dataset = "{1,2,3,4,5}";
+		dataset = gson.toJson(linkMusics);
 		return "item_query";
 	}
 

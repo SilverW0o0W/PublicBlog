@@ -55,28 +55,15 @@ $(document).ready(function() {
 	;
 
 	$.post("background/LinkMusic_query.action", {
-		id : 3
 	}, function(dataset, status) {
 		showItems(dataset);
 	});
 	
 	function showItems(dataset) {
-		var responseObj = eval("(" + dataset + ")");
-		var messageClass;
-		var messageInfo;
-
-		messageInfo += responseObj.message;
-		var liElement = document.createElement("li");
-		var textNode = document.createTextNode(messageInfo);
-		liElement.className = messageClass;
-		liElement.appendChild(textNode);
-		$("#response-ul").prepend(liElement);
-		$("#response-ul").children().on("click", function() {
-			$(this).slideToggle(function() {
-				$(this).remove();
-			});
-
-		});
+		var musicList = dataset;
+		
+		
+		
 	}
 	;
 });
