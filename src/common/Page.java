@@ -16,6 +16,10 @@ public class Page {
 		this.recordEachPage = recordEachPage;
 	}
 
+	public int getCurrentPage() {
+		return currentPage;
+	}
+
 	public int getPagesCount() {
 		return pagesCount;
 	}
@@ -49,7 +53,7 @@ public class Page {
 		}
 		tempPagesCount = (int) (recordsCount / recordEachPage);
 		tempPagesCount += recordsCount % recordEachPage > 0 ? 1 : 0;
-//		System.out.println(tempPagesCount);
+		// System.out.println(tempPagesCount);
 		this.pagesCount = tempPagesCount;
 		int pageIndex;
 		if (pageNumber <= this.pagesCount) {
@@ -57,7 +61,8 @@ public class Page {
 		} else {
 			pageIndex = this.pagesCount - 1;
 		}
-//		System.out.println(pageIndex);
+		// System.out.println(pageIndex);
+		this.currentPage = pageIndex + 1;
 		firstIndex = pageIndex * recordEachPage;
 		return firstIndex;
 	}

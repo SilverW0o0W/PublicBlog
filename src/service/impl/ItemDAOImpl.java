@@ -9,6 +9,7 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Projections;
 
 import POJO.Item;
+import POJO.VersionResource;
 import common.Page;
 import common.factory.PageFactory;
 import hibernate.HibernateSessionFactory;
