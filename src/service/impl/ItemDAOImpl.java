@@ -1,5 +1,6 @@
 package service.impl;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -9,7 +10,6 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Projections;
 
 import POJO.Item;
-import POJO.VersionResource;
 import common.Page;
 import common.factory.PageFactory;
 import hibernate.HibernateSessionFactory;
@@ -17,9 +17,9 @@ import service.ItemDAO;
 
 public abstract class ItemDAOImpl implements ItemDAO {
 
-	private Session session;
-	private Transaction transaction;
-	private Page page;
+	protected Session session;
+	protected Transaction transaction;
+	protected Page page;
 
 	@Override
 	public boolean add(Item item) {
@@ -106,6 +106,36 @@ public abstract class ItemDAOImpl implements ItemDAO {
 			return items;
 		} catch (Exception ex) {
 			ex.printStackTrace();
+			transaction.rollback();
+			return null;
+		} finally {
+			if (transaction != null) {
+				transaction = null;
+			}
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public Item query(int id, Class<? extends Item> itemClass) {
+		List<? extends Item> items = null;
+		Item item = null;
+		transaction = null;
+		try {
+			session = HibernateSessionFactory.getSesstionFactory().getCurrentSession();
+			String hql = String.format("from %s where id = ?", itemClass.getSimpleName());
+			transaction = session.beginTransaction();
+			Query query = session.createQuery(hql);
+			query.setInteger(0, id);
+			items = query.list();
+			Iterator<? extends Item> iterator = items.iterator();
+			if (iterator.hasNext()) {
+				item = (Item) iterator.next();
+			}
+			transaction.commit();
+			return item;
+		} catch (Exception ex) {
+			ex.getMessage();
 			transaction.rollback();
 			return null;
 		} finally {

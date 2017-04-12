@@ -3,7 +3,6 @@ package service;
 import java.util.List;
 
 import POJO.Item;
-import common.Page;
 
 public interface ItemDAO {
 	boolean add(Item item);
@@ -15,4 +14,6 @@ public interface ItemDAO {
 	List<? extends Item> query(Class<? extends Item> itemClass);
 
 	List<? extends Item> query(Class<? extends Item> itemClass, int pageNumber);
+
+	Item query(int id, Class<? extends Item> itemClass);
 }
