@@ -20,7 +20,7 @@ public class LinkMusicAction extends AsyncAction implements ModelDriven<LinkMusi
 	 * 
 	 */
 	private static final long serialVersionUID = -3816627476063622227L;
-	private LinkMusic linkMusic = new LinkMusic();
+	private LinkMusic linkMusic = new LinkMusic(-1);
 	private LinkMusicDAO linkMusicDAO;
 
 	public String add() {
@@ -67,6 +67,13 @@ public class LinkMusicAction extends AsyncAction implements ModelDriven<LinkMusi
 	}
 
 	public String query() {
+
+		if (linkMusic.getId() != -1) {
+			int id = linkMusic.getId();
+			linkMusicDAO.query(id, LinkMusic.class);
+		} else {
+			int page = Integer.parseInt(request.getParameter("page"));
+		}
 		Gson gson = GsonFactory.GetInstance();
 		int pageNumber;
 		String sPageNumber = "";

@@ -54,16 +54,17 @@ $(document).ready(function() {
 	}
 	;
 
-	$.post("background/LinkMusic_query.action", {
-	}, function(dataset, status) {
+	function loadMusicList(){
+		$.post("background/LinkMusic_query.action", {
+
+		}, function(dataset, status) {
 		showItems(dataset);
-	});
+		});
+	}
+
 	
 	function showItems(dataset) {
 		var musicList = dataset;
-		
-		
-		
 	}
 	;
 });

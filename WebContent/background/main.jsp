@@ -21,6 +21,7 @@
 <script src="JavaScript/jquery-3.1.1.min.js"></script>
 <script src="JavaScript/backgroud/main/main.js"></script>
 <script src="JavaScript/backgroud/main/ajax.js"></script>
+<script src="JavaScript/backgroud/main/control.js"></script>
 </head>
 <body>
 	<div id="wrapper">
@@ -112,7 +113,8 @@
 											<td>URL</td>
 											<td>Operation</td>
 										</tr>
-										<s:action name="LinkMusic_query"  namespace="/background" />
+										<tr>
+										<s:action name="LinkMusic_query" namespace="/background" />
 									</table>
 									<input type="button" id="music-delete" name="music-delete"
 										value="delete">
